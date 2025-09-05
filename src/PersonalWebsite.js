@@ -132,29 +132,15 @@ const PersonalWebsite = () => {
             Anubhav Choudhery
           </h1>
           
-          <p className="hero-subtitle">
-            Computer Engineering & Computer Science Student
-          </p>
-          
-          <p className="hero-description">
-            Passionate about AI/ML, cybersecurity, and full-stack development. Currently pursuing a BS in Computer Engineering 
-            and Computer Science at UW-Madison with experience in automated systems, encrypted computing, and intelligent applications.
-          </p>
-          
-          <div className="hero-buttons">
-            <button
-              onClick={() => scrollToSection('projects')}
-              className="btn-primary"
-            >
-              View My Work
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="btn-secondary"
-            >
-              Get In Touch
-            </button>
-          </div>
+        <p className="hero-description">
+          Hello there!
+        </p>
+        <p className="hero-description">
+          My name is Anubhav, and I'm an aspiring engineering professional with a strong background in Software Development and AI/ML. 
+          I'm passionate about building scalable software solutions, especially ones powered by AI. 
+          Alongside my software focus, I've also built a solid foundation in hardware systems and cybersecurity through hands-on coursework 
+          and internship experience.
+        </p>
 
           <button
             onClick={() => scrollToSection('about')}
@@ -171,18 +157,22 @@ const PersonalWebsite = () => {
           <h2 className="section-title">About Me</h2>
           <div>
             <p className="about-content">
-              I'm a Computer Engineering and Computer Science student at the University of Wisconsin-Madison 
-              with a passion for leveraging technology to solve complex problems. My experience spans from 
-              cybersecurity automation to encrypted machine learning research.
+              I'm currently pursuing an Undergraduate degree in Computer Engineering and Computer Science at the University of Wisconsin-Madison,
+              where I'm undertaking diverse coursework (including future terms) spanning Hardware fundamentals 
+              (Digital Design/VLSI, Microprocessor systems, Computer Architecture), 
+              Software Design (Distributed Systems, Programming Languages and Compilers, Operating Systems) and Advanced Mathematics
+              for AI (Optimization Theory, Numerical Analysis).
             </p>
             <p className="about-content">
-              Currently working as an Undergraduate Researcher in the MLOPT Research Group, focusing on 
-              encrypted image inference using Deep Polynomial Networks. I've also gained valuable industry 
-              experience as a Cybersecurity Analyst Intern at Culligan International.
+              I've also had the privilege to work in research on the crossroads of Machine Learning and Cybersecurity (within the MLOPT Research Group), and 
+              lead an engineering student origanization (Wisconsin Robotics) with more than 40 members. My recent professional experience also 
+              includes an internship as Cybersecurity Analyst at Culligan International, where I worked alongside the Global Cybersecurity team
+              to build python-based tools for automating manual processes, reporting directly to the global CISO. 
             </p>
             <p className="about-content">
-              When I'm not coding, you can find me leading Wisconsin Robotics as Treasurer, exploring new 
-              AI/ML frameworks, or working on automation projects that make life easier.
+              Aside from my technical pursuits, I enjoy playing chess (<a href = "https://lichess.org/@/anubhav95">Challenge Me!</a>), 
+              drums (learnt up to Grade 3), ping pong (table tennis) and pickleball. 
+              These activities keep me balanced, sharpen my problem-solving skills while also improving quick thinking, and give me space to recharge creatively.
             </p>
             <div className="about-buttons">
               <button className="btn-solid">
