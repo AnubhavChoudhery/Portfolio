@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail, Download, ChevronDown } from 'lucide-react';
 import './index.css'; 
+import Skills from './skills';
 
 const PersonalWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,34 +42,6 @@ const PersonalWebsite = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const skillCategories = [
-    {
-      title: "Languages",
-      colorClass: "blue",
-      skills: ['Python', 'JavaScript', 'Java', 'C++', 'Assembly', 'SystemVerilog', 'HTML/CSS', 'MATLAB', 'Git']
-    },
-    {
-      title: "AI/ML & Data Science",
-      colorClass: "purple",
-      skills: ['PyTorch', 'Tensorflow', 'Keras', 'Scikit-learn', 'LangChain', 'Microsoft SEAL', 'Pandas', 'NumPy', 'Matplotlib']
-    },
-    {
-      title: "Web Development",
-      colorClass: "green",
-      skills: ['Flask', 'Django', 'Node.js', 'Express.js', 'React.js', 'jQuery', 'PostgreSQL']
-    },
-    {
-      title: "Automation & DevOps",
-      colorClass: "orange",
-      skills: ['Docker', 'AWS', 'Azure', 'Selenium', 'JUnit', 'BeautifulSoup', 'Tmux', 'VSCode', 'GitHub']
-    },
-    {
-      title: "Visualization & UI",
-      colorClass: "pink",
-      skills: ['Bokeh', 'Panel', 'Bootstrap', 'Figma', 'Gradio']
-    }
-  ];
 
   return (
     <div>
@@ -174,54 +147,12 @@ const PersonalWebsite = () => {
               drums (learnt up to Grade 3), ping pong (table tennis) and pickleball. 
               These activities keep me balanced, sharpen my problem-solving skills while also improving quick thinking, and give me space to recharge creatively.
             </p>
-            <div className="about-buttons">
-              <button className="btn-solid">
-                <Download size={20} />
-                Download Resume
-              </button>
-              <div className="btn-group">
-                <a href="mailto:anubhavchoudhery@gmail.com" className="btn-outline">
-                  <Mail size={20} />
-                  Email
-                </a>
-                <a href="https://linkedin.com/in/anubhav-ch" className="btn-outline">
-                  <Linkedin size={20} />
-                  LinkedIn
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="section">
-        <div className="container">
-          <h2 className="section-title">Skills & Technologies</h2>
-          
-          {skillCategories.map((category, categoryIndex) => (
-            <div key={category.title} className="skills-category">
-              <h3 className={`category-title ${category.colorClass}`}>
-                {category.title}
-              </h3>
-              <div className="skills-grid">
-                {category.skills.map((skill) => (
-                  <div key={skill} className="skill-item">
-                    <div className={`skill-icon ${category.colorClass}`}>
-                      <span className={`skill-text ${category.colorClass}`}>
-                        {skill.slice(0, 2)}
-                      </span>
-                    </div>
-                    <p className={`skill-name ${category.colorClass}`}>
-                      {skill}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <Skills />
 
       {/* Projects Section */}
       <section id="projects" className="section section-alt">
@@ -339,9 +270,6 @@ const PersonalWebsite = () => {
                 <span>GitHub</span>
               </a>
             </div>
-            <button className="btn-primary">
-              Say Hello
-            </button>
           </div>
         </div>
       </section>
@@ -349,7 +277,7 @@ const PersonalWebsite = () => {
       {/* Footer */}
       <footer className="footer">
         <div className="container">
-          <p>© 2024 Anubhav Choudhery. Built with React & CSS.</p>
+          <p>© 2025 Anubhav Choudhery</p>
         </div>
       </footer>
     </div>
