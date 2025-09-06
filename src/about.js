@@ -16,7 +16,7 @@ const About = () => {
             </p>
             <p className="about-content">
               I've also had the privilege to work in research on the crossroads of Machine Learning and Cybersecurity (within the MLOPT Research Group), and 
-              lead multiple engineering student origanizations (Wisconsin Robotics, RoboKnights) with more than 40 members. My recent professional experience also 
+              lead multiple engineering student origanizations (Wisconsin Robotics, RoboKnights) with over 40 members. My recent professional experience also 
               includes an internship as Cybersecurity Analyst at Culligan International, where I worked alongside the Global Cybersecurity team
               to build python-based tools for automating manual processes, reporting directly to the global CISO. 
             </p>

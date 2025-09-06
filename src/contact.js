@@ -13,15 +13,15 @@ const Contact = () => {
               Whether you have a question or just want to say hi, feel free to reach out!
             </p>
             <div className="contact-links">
-              <a href="mailto:anubhavchoudhery@gmail.com" className="contact-link">
+              <a href="mailto:anubhavchoudhery@gmail.com" target = "_blank" className="contact-link">
                 <Mail size={24} />
                 <span>Email</span>
               </a>
-              <a href="https://linkedin.com/in/anubhav-ch" className="contact-link">
+              <a href="https://linkedin.com/in/anubhav-ch" target = "_blank" className="contact-link">
                 <Linkedin size={24} />
                 <span>LinkedIn</span>
               </a>
-              <a href="https://github.com/AnubhavChoudhery" className="contact-link">
+              <a href="https://github.com/AnubhavChoudhery" target = "_blank" className="contact-link">
                 <Github size={24} />
                 <span>GitHub</span>
               </a>
