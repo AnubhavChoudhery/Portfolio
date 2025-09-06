@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin, Mail, Download, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import './index.css'; 
 import Skills from './skills';
 import Experiences from './experiences';
+import Projects from './projects';
+import About from './about';
+import Contact from './contact';
 
 const PersonalWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
-  //navigation items
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'skills', label: 'Skills' },
-    { id: 'projects', label: 'Projects' },
     { id: 'experience', label: 'Experience' },
+    { id: 'projects', label: 'Projects' },
     { id: 'contact', label: 'Contact' }
   ];
 
@@ -125,33 +127,8 @@ const PersonalWebsite = () => {
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="section section-alt">
-        <div className="container">
-          <h2 className="section-title">About Me</h2>
-          <div>
-            <p className="about-content">
-              I'm currently pursuing an Undergraduate degree in Computer Engineering and Computer Science at the University of Wisconsin-Madison,
-              where I'm undertaking diverse coursework (including future terms) spanning Hardware fundamentals 
-              (Digital Design/VLSI, Microprocessor systems, Computer Architecture), 
-              Software Design (Distributed Systems, Programming Languages and Compilers, Operating Systems) and Advanced Mathematics
-              for AI (Optimization Theory, Numerical Analysis).
-            </p>
-            <p className="about-content">
-              I've also had the privilege to work in research on the crossroads of Machine Learning and Cybersecurity (within the MLOPT Research Group), and 
-              lead multiple engineering student origanizations (Wisconsin Robotics, RoboKnights) with more than 40 members. My recent professional experience also 
-              includes an internship as Cybersecurity Analyst at Culligan International, where I worked alongside the Global Cybersecurity team
-              to build python-based tools for automating manual processes, reporting directly to the global CISO. 
-            </p>
-            <p className="about-content">
-              Aside from my technical pursuits, I enjoy playing chess (<a href = "https://lichess.org/@/anubhav95" target="_blank">Challenge Me!</a>), 
-              drums (learnt up to Grade 3), ping pong (table tennis) and pickleball. My cinematic interests typically include action, 
-              comedy and sci-fi movies with Mission Impossible and Star Wars being my favorite collections.
-              These activities keep me balanced, sharpen my problem-solving skills while also improving quick thinking, and give me space to recharge creatively.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/*About*/}
+      <About />
 
       {/*Skills*/}
       <Skills />
@@ -159,85 +136,11 @@ const PersonalWebsite = () => {
       {/*Experiences*/}
       <Experiences />
 
-      {/* Projects Section */}
-      <section id="projects" className="section section-alt">
-        <div className="container">
-          <h2 className="section-title">Featured Projects</h2>
-          <div className="projects-grid">
-            {[
-              {
-                title: "AI-Powered Job Search Assistant",
-                description: "Engineered intelligent automation workflow to evaluate resume compatibility with ATS and generate role-specific interview preparation documents.",
-                image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop&auto=format&q=80",
-                tech: ["Python", "Gradio", "IBM Watsonx", "Web Scraping"],
-                github: "#"
-              },
-              {
-                title: "LLM-Powered Questionnaire Generator",
-                description: "AI-powered pipeline to generate structured questionnaires from YouTube videos using OpenAI-Whisper and Qwen 2.5.",
-                image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop&auto=format&q=80",
-                tech: ["Python", "OpenAI-Whisper", "Qwen 2.5", "NumPy"],
-                github: "#"
-              },
-              {
-                title: "Encrypted Image Inference",
-                description: "Implemented encrypted image inference using Deep Polynomial Networks with Microsoft SEAL for privacy-preserving ML.",
-                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=250&fit=crop&auto=format&q=80",
-                tech: ["C++", "Microsoft SEAL", "Docker", "HTCondor"],
-                github: "#"
-              }
-            ].map((project, index) => (
-              <div key={index} className="project-card">
-                <img src={project.image} alt={project.title} className="project-image" />
-                <div className="project-content">
-                  <h3 className="project-title">{project.title}</h3>
-                  <p className="project-description">{project.description}</p>
-                  <div className="project-tech">
-                    {project.tech.map(tech => (
-                      <span key={tech} className="tech-tag">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="project-links">
-                    <a href={project.github} className="project-link">
-                      <Github size={16} />
-                      Code
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/*Projects*/}
+      <Projects />
 
-      {/* Contact Section */}
-      <section id="contact" className="section section-alt">
-        <div className="container">
-          <h2 className="section-title">Get In Touch</h2>
-          <div className="contact-content">
-            <p className="contact-description">
-              I'm always interested in new opportunities and exciting projects. 
-              Whether you have a question or just want to say hi, feel free to reach out!
-            </p>
-            <div className="contact-links">
-              <a href="mailto:anubhavchoudhery@gmail.com" className="contact-link">
-                <Mail size={24} />
-                <span>Email</span>
-              </a>
-              <a href="https://linkedin.com/in/anubhav-ch" className="contact-link">
-                <Linkedin size={24} />
-                <span>LinkedIn</span>
-              </a>
-              <a href="https://github.com/AnubhavChoudhery" className="contact-link">
-                <Github size={24} />
-                <span>GitHub</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/*Contact*/}
+      <Contact />
 
       {/* Footer */}
       <footer className="footer">
