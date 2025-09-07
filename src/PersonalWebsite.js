@@ -98,7 +98,7 @@ const PersonalWebsite = () => {
         <div className="hero-content">
           <div>
             <img
-              src="/Anubhav.jpg"
+              src="./Anubhav.jpg"
               alt="Profile"
               className="profile-img"
             />
