@@ -22,7 +22,7 @@ const About = () => {
             </p>
             <p className="about-content">
               Aside from my technical pursuits, I enjoy playing chess (<a href = "https://lichess.org/@/anubhav95" target="_blank">Challenge Me!</a>), 
-              drums (learnt up to Grade 3), ping pong (table tennis) and pickleball. My cinematic interests typically include action, 
+              drums (Level/Grade 3 Trinity), ping pong (table tennis) and pickleball. My cinematic interests typically include action, 
               comedy and sci-fi movies with Mission Impossible and Star Wars being my favorite collections.
               These activities keep me balanced, sharpen my problem-solving skills while also improving quick thinking, and give me space to recharge creatively.
             </p>
