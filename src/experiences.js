@@ -5,7 +5,7 @@ const Experiences = () => {
 return (
     <section id="experience" className="section">
         <div className="container">
-            <h2 className="section-title">Experience</h2>
+            <h2 className="section-title">Experiences</h2>
             <div>
                 {[
                     {
@@ -54,6 +54,20 @@ return (
                             for day-to-day operations. \ I also co-led the software subteam in my sophomore year, helping onboard and \
                             train over 50 members, as well as leading key projects in Object Detection, Motor Control and Obstacle Avoidance."
                         ]
+                    },
+                    {
+                        title: "President",
+                        company: "RoboKnights",
+                        period: "September 2020 - March 2023",
+                        description: ["My time at RoboKnights comprised my first leadership and teamwork experiences. I joined as a \
+                        newbie relative to a lot of my companions and went through a life-shaping experience. I didn't just learn \
+                        technical skills on the fly, but also how to effectively collaborate and lead teams while \
+                        organizing/coordinating multiple arrangements.",
+                        "Throughout my junior and senior years of high school, I led multiple teams in \
+                        competitions organized by IIT-Bombay (Weldright, Meshmerize), IIT-Delhi (Mindmaze) and FAA (RWDC X2), \
+                        and played a key role in organizing interschool competitions (both online and in-person). As President, \
+                        I spearheaded new member recruitment, sponsorship outreach, competition organizations/preparations \
+                        and overall club management."]
                     }
                 ].map((job, index) => (
                     <div key={index} className="experience-item">
