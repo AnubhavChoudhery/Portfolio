@@ -61,7 +61,8 @@ const Skills = () => {
         { name: "VSCode", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
         { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
         { name: "Postman", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
-        { name: "Tmux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tmux/tmux-original.svg"}
+        { name: "Tmux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tmux/tmux-original.svg"},
+        { name: "GCP", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" }
       ]
     },
     {

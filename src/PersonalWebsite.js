@@ -3,6 +3,7 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import './index.css'; 
 import Skills from './skills';
 import Experiences from './experiences';
+import Products from './products';
 import Projects from './projects';
 import About from './about';
 import Contact from './contact';
@@ -16,6 +17,7 @@ const PersonalWebsite = () => {
     { id: 'about', label: 'About' },
     { id: 'skills', label: 'Skills' },
     { id: 'experience', label: 'Experience' },
+    { id: 'products', label: 'Products' },
     { id: 'projects', label: 'Projects' },
     { id: 'contact', label: 'Contact' }
   ];
@@ -135,6 +137,9 @@ const PersonalWebsite = () => {
 
       {/*Experiences*/}
       <Experiences />
+
+      {/*Products*/}
+      <Products />
 
       {/*Projects*/}
       <Projects />
