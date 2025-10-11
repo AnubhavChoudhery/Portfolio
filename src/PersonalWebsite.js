@@ -11,6 +11,7 @@ import Contact from './contact';
 const PersonalWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [isNavScrolled, setIsNavScrolled] = useState(false);
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -31,13 +32,48 @@ const PersonalWebsite = () => {
   };
 
   useEffect(() => {
+    // Intersection Observer for section visibility
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.2
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('section-visible');
+          entry.target.classList.remove('section-hidden');
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Observe all sections
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+      section.classList.add('section-hidden');
+      observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach(section => observer.unobserve(section));
+    };
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () => {
+      // Nav scroll effect
+      setIsNavScrolled(window.scrollY > 50);
+
+      // Active section tracking
       const sections = navItems.map(item => item.id);
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
+          return rect.top <= 150 && rect.bottom >= 150;
         }
         return false;
       });
@@ -51,7 +87,7 @@ const PersonalWebsite = () => {
   return (
     <div>
       {/* Navigation */}
-      <nav className="nav">
+      <nav className={`nav ${isNavScrolled ? 'nav-scrolled' : ''}`}>
         <div className="nav-container">
           <div className="nav-logo">
             Anubhav Choudhery
