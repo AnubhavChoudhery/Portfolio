@@ -10,6 +10,24 @@ const Projects = () => {
           <div className="projects-grid">
             {[
               {
+                title: "Self-Balancing Segway Controller (RTL Design)",
+                description: "SystemVerilog-based digital control system for a self-balancing Segway, \
+                handling sensor acquisition, control logic, and system sequencing. \
+                Includes UART-based control and continuous SPI sensor interfacing.",
+                image: "https://store-ca.segway.com/media/catalog/product/cache/d3ec3723470ff918c92e447639eaf984/s/2/s2_main.png",
+                tech: ["SystemVerilog", "RTL Design", "Static Timing Analysis", "Computer System Validation", "Synthesis"],
+                github: "#"
+              },
+              {
+                title: "Battleship Game (FreeRTOS Embedded System)",
+                description: "Two-player embedded Battleship game built in C using FreeRTOS, \
+                with task-based coordination and UART-based communication between PSoc6 microcontrollers. \
+                Uses queues, semaphores, and I2C-controlled LEDs to manage game state and feedback.",
+                image: "https://dosgames.com/screens/battleship.gif",
+                tech: ["C", "FreeRTOS", "UART", "I2C"],
+                github: "#"
+              },
+              {
                 title: "AI-Powered Job Search Assistant",
                 description: "Engineered multi-agentic AI workflow to evaluate resume compatibility with ATS and \
                 generate role-specific interview preparation documents.",
