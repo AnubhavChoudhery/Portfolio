@@ -11,7 +11,7 @@ const About = () => {
               I'm currently pursuing an Undergraduate degree in Computer Engineering and Computer Science at the University of Wisconsin-Madison,
               where I'm undertaking diverse coursework (including future terms) spanning Hardware fundamentals 
               (Digital Design/VLSI, Embedded/Firmware systems, Computer Architecture), 
-              Software Design (Distributed Systems, Programming Languages and Compilers, Operating Systems) and Advanced Mathematics
+              Software Design (Distributed Systems, Databases, Operating Systems) and Advanced Mathematics
               for AI (Optimization Theory, Numerical Analysis).
             </p>
             <p className="about-content">

@@ -15,8 +15,8 @@ return (
                             description: [
                                 <>At JBAC, I am working on developing a consolidated education platform that aims to 
                                 enhance learning experiences of students and professionals worldwide. 
-                                I have currently deployed the main site (<a href="https://jbac.dev" target="_blank" rel="noopener noreferrer">https://jbac.dev</a>) which includes three products: 
-                                AI-Powered mock interviewer, Hackathon Scraper and LLM-Powered Questionnaire Generator.</>,
+                                I have currently deployed the main site (<a href="https://jbac.dev" target="_blank" rel="noopener noreferrer">https://jbac.dev</a>) which includes 4 products and 
+                                3 open-source Python libraries/SDKs (more to come!).</>,
                                 "The tools we build are inspired by tools we felt should exist, often discussing over a call \
                                 'Can we build this?' and jumping right into ideation, prototyping and development. \
                                 I have been involved in the entire product lifecycle, gaining valuable experience in \
