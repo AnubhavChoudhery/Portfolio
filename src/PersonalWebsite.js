@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import './index.css'; 
+import './index.css';
 import Skills from './skills';
 import Experiences from './experiences';
 import Products from './products';
@@ -87,12 +88,17 @@ const PersonalWebsite = () => {
   return (
     <div>
       {/* Navigation */}
-      <nav className={`nav ${isNavScrolled ? 'nav-scrolled' : ''}`}>
-        <div className="nav-container">
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+        className={`nav ${isNavScrolled ? 'nav-scrolled' : ''}`}
+      >
+        <div className="nav-container container">
           <div className="nav-logo">
             Anubhav Choudhery
           </div>
-          
+
           {/* Desktop Navigation */}
           <div className="nav-desktop">
             {navItems.map(item => (
@@ -117,7 +123,11 @@ const PersonalWebsite = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="nav-mobile">
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            className="nav-mobile"
+          >
             {navItems.map(item => (
               <button
                 key={item.id}
@@ -127,41 +137,54 @@ const PersonalWebsite = () => {
                 {item.label}
               </button>
             ))}
-          </div>
+          </motion.div>
         )}
-      </nav>
+      </motion.nav>
 
       {/* Hero Section */}
       <section id="home" className="hero">
         <div className="hero-content">
-          <div>
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
             <img
               src="./Anubhav.png"
               alt="Profile"
               className="profile-img"
             />
-          </div>
-          
-          <h1 className="hero-title">
-            Anubhav Choudhery
-          </h1>
-          
-        <p className="hero-description">
-          Hello there!
-        </p>
-        <p className="hero-description">
-          My name is Anubhav, and I'm an aspiring engineering professional with a strong background in Software Development and AI/ML. 
-          I'm passionate about building scalable software solutions, especially ones powered by AI. 
-          Alongside my software focus, I've also built a solid foundation in hardware systems and cybersecurity through hands-on coursework 
-          and internship experience.
-        </p>
+          </motion.div>
 
-          <button
-            onClick={() => scrollToSection('about')}
-            className="bounce"
+          <motion.h1
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="hero-title"
           >
-            <ChevronDown size={32} />
-          </button>
+            Anubhav Choudhery
+          </motion.h1>
+
+          <motion.p
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="hero-subtitle"
+          >
+            Hello there!
+          </motion.p>
+
+          <motion.p
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+            className="hero-description"
+          >
+            My name is Anubhav, and I'm an aspiring engineering professional with a strong background in Software Development and AI/ML.
+            I'm passionate about building scalable software solutions, especially ones powered by AI.
+            Alongside my software focus, I've also built a solid foundation in hardware systems and cybersecurity through hands-on coursework
+            and internship experience.
+          </motion.p>
         </div>
       </section>
 

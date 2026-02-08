@@ -1,22 +1,23 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './index.css';
 
 const Experiences = () => {
-return (
+    return (
         <section id="experience" className="section">
             <div className="container">
                 <h2 className="section-title">Experiences</h2>
-                <div>
+                <div className="experiences-list">
                     {[
                         {
                             title: "Founding Developer",
                             company: "JBAC EdTech",
                             period: "September 2025 - Present",
                             description: [
-                                <>At JBAC, I am working on developing a consolidated education platform that aims to 
-                                enhance learning experiences of students and professionals worldwide. 
-                                I have currently deployed the main site (<a href="https://jbac.dev" target="_blank" rel="noopener noreferrer">https://jbac.dev</a>) which includes 4 products and 
-                                3 open-source Python libraries/SDKs (more to come!).</>,
+                                <>At JBAC, I am working on developing a consolidated education platform that aims to
+                                    enhance learning experiences of students and professionals worldwide.
+                                    I have currently deployed the main site (<a href="https://jbac.dev" target="_blank" rel="noopener noreferrer">https://jbac.dev</a>) which includes 4 products and
+                                    3 open-source Python libraries/SDKs (more to come!).</>,
                                 "The tools we build are inspired by tools we felt should exist, often discussing over a call \
                                 'Can we build this?' and jumping right into ideation, prototyping and development. \
                                 I have been involved in the entire product lifecycle, gaining valuable experience in \
@@ -80,14 +81,21 @@ return (
                             newbie relative to a lot of my companions and went through a life-shaping experience. I didn't just learn \
                             technical skills on the fly, but also how to effectively collaborate and lead teams while \
                             organizing/coordinating multiple arrangements.",
-                            "Throughout my junior and senior years of high school, I led multiple teams in \
+                                "Throughout my junior and senior years of high school, I led multiple teams in \
                             competitions organized by IIT-Bombay (Weldright, Meshmerize), IIT-Delhi (Mindmaze) and FAA (RWDC X2), \
                             and played a key role in organizing interschool competitions (both online and in-person). As President, \
                             I spearheaded new member recruitment, sponsorship outreach, competition organizations/preparations \
                             and overall club management."]
                         }
                     ].map((job, index) => (
-                        <div key={index} className="experience-item">
+                        <motion.div
+                            key={index}
+                            className="experience-item"
+                            initial={{ x: -20, opacity: 0 }}
+                            whileInView={{ x: 0, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.2, duration: 0.5 }}
+                        >
                             <div className="experience-number">
                                 {index + 1}
                             </div>
@@ -96,19 +104,19 @@ return (
                                 <p className="experience-company">{job.company} • {job.period}</p>
                                 {Array.isArray(job.description)
                                     ? job.description.map((desc, i) => (
-                                            <p className="experience-description" key={i} style={{ marginBottom: '1em' }}>
-                                                {desc}
-                                            </p>
-                                        ))
+                                        <p className="experience-description" key={i} style={{ marginBottom: '1em' }}>
+                                            {desc}
+                                        </p>
+                                    ))
                                     : <p className="experience-description">{job.description}</p>
                                 }
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
         </section>
-);
+    );
 };
 
 export default Experiences;
