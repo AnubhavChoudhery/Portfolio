@@ -1,14 +1,57 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './index.css';
 import { ExternalLink } from 'lucide-react';
+
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 32 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }
+};
+
+const handleCardGlow = (e) => {
+  const card = e.currentTarget;
+  const rect = card.getBoundingClientRect();
+  const px = (e.clientX - rect.left) / rect.width;
+  const py = (e.clientY - rect.top) / rect.height;
+  const rx = (py - 0.5) * -14;
+  const ry = (px - 0.5) * 14;
+  card.style.transform = `perspective(900px) translateY(-6px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+  card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+  card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+  card.style.setProperty('--mx', `${px * 100}%`);
+  card.style.setProperty('--my', `${py * 100}%`);
+};
+
+const resetCardTilt = (e) => {
+  e.currentTarget.style.transform = '';
+};
 
 const Products = () => {
   return (
     <section id="products" className="section">
         <div className="container">
           <h2 className="section-title">Products</h2>
-          <div className="projects-grid">
+          <motion.div
+            className="projects-grid"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+          >
             {[
+              {
+                title: "NablaQuant",
+                description: "An option pricing engine I built in C++ to mess around with quantitative finance. Comes with a Python SDK, \
+                REST backend, and a live dashboard to play with.",
+                image: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/cplusplus/cplusplus-original.svg",
+                tech: ["C++17", "Black-Scholes PDEs", "Crank-Nicolson", "SIMD (AVX2/FMA)", "Auto-diff (Greeks)", "Python SDK", "FastAPI"],
+                link: "https://pypi.org/project/nablaquant/"
+              },
               {
                 title: "TinyGNN",
                 description: "Built lightweight C++17 engine for high-performance, memory-efficient sparse GNN inference.",
@@ -72,8 +115,21 @@ const Products = () => {
                 link: "https://hackathons.jbac.dev/"
               }
             ].map((product, index) => (
-              <div key={index} className="project-card">
-                <img src={product.image} alt={product.title} className="project-image" />
+              <motion.div
+                key={index}
+                className="project-card tilt-card"
+                variants={cardVariants}
+                onMouseMove={handleCardGlow}
+                onMouseLeave={resetCardTilt}
+              >
+                <div className="card-glow-overlay" />
+                <div className="tilt-glare" />
+                <div className="card-accent-bar" />
+                <div className="project-image-wrap">
+                  <img src={product.image} alt={product.title} className="project-image" />
+                  <div className="project-image-overlay" />
+                </div>
+                <span className="card-index">{String(index + 1).padStart(2, '0')}</span>
                 <div className="project-content">
                   <h3 className="project-title">{product.title}</h3>
                   <p className="project-description">{product.description}</p>
@@ -91,9 +147,9 @@ const Products = () => {
                     </a>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
   );

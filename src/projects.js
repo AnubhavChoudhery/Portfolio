@@ -1,14 +1,84 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './index.css';
 import { Github } from 'lucide-react';
+
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 32 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }
+};
+
+const handleCardGlow = (e) => {
+  const card = e.currentTarget;
+  const rect = card.getBoundingClientRect();
+  const px = (e.clientX - rect.left) / rect.width;
+  const py = (e.clientY - rect.top) / rect.height;
+  const rx = (py - 0.5) * -14;
+  const ry = (px - 0.5) * 14;
+  card.style.transform = `perspective(900px) translateY(-6px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+  card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+  card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+  card.style.setProperty('--mx', `${px * 100}%`);
+  card.style.setProperty('--my', `${py * 100}%`);
+};
+
+const resetCardTilt = (e) => {
+  e.currentTarget.style.transform = '';
+};
 
 const Projects = () => {
   return (
     <section id="projects" className="section section-alt">
         <div className="container">
           <h2 className="section-title">Projects</h2>
-          <div className="projects-grid">
+          <motion.div
+            className="projects-grid"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+          >
             {[
+              {
+                title: "Distributed Security Telemetry",
+                description: "A mini distributed system I built to play with data streaming at scale — \
+                Docker containers pushing security events through a Kafka cluster into Spark, \
+                with a live Next.js dashboard watching it all in real time.",
+                image: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/apachekafka/apachekafka-original.svg",
+                tech: ["Kafka KRaft", "PySpark", "Fluentd", "FastAPI WebSocket", "Next.js", "Docker", "Prometheus"],
+                github: "#"
+              },
+              {
+                title: "Neural ODE Solver",
+                description: "A Neural ODE solver I wrote in C++ to learn how continuous-time models \
+                work under the hood, with Python bindings and a pile of unit tests. \
+                Benchmarked it against SciPy and it holds its own.",
+                image: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/pytorch/pytorch-original.svg",
+                tech: ["C++17", "libtorch", "RK4 Integration", "ODE-RNN", "PyBind11", "CMake"],
+                github: "#"
+              },
+              {
+                title: "RISC-V Processor (RV32I)",
+                description: "A 5-stage pipelined RV32I processor I designed in SystemVerilog, \
+                with branch prediction and a cache. ",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH15JM6taFV6K5e_2DWvYEEDbMiZ5LJ_edZ20BUiXW9g&s=10",
+                tech: ["SystemVerilog", "RV32I", "Branch Prediction", "Cache Design", "Verilator", "Static Timing Analysis"],
+                github: "#"
+              },
+              {
+                title: "Custom PCB — Whack-a-Mole",
+                description: "A real PCB I designed and soldered together for a Whack-a-Mole game, \
+                from schematic in Altium all the way to bring-up. The game logic runs on a \
+                Raspberry Pi in C.",
+                image: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/raspberrypi/raspberrypi-original.svg",
+                tech: ["Altium Designer", "Raspberry Pi", "C", "PCB Design", "Schematic Capture", "Hardware Bring-up"],
+                github: "#"
+              },
               {
                 title: "ReChess",
                 description: "C++ CLI to stream Lichess NDJSON game exports (libcurl), \
@@ -90,8 +160,21 @@ const Projects = () => {
                 github: ""
               }
             ].map((project, index) => (
-              <div key={index} className="project-card">
-                <img src={project.image} alt={project.title} className="project-image" />
+              <motion.div
+                key={index}
+                className="project-card tilt-card"
+                variants={cardVariants}
+                onMouseMove={handleCardGlow}
+                onMouseLeave={resetCardTilt}
+              >
+                <div className="card-glow-overlay" />
+                <div className="tilt-glare" />
+                <div className="card-accent-bar" />
+                <div className="project-image-wrap">
+                  <img src={project.image} alt={project.title} className="project-image" />
+                  <div className="project-image-overlay" />
+                </div>
+                <span className="card-index">{String(index + 1).padStart(2, '0')}</span>
                 <div className="project-content">
                   <h3 className="project-title">{project.title}</h3>
                   <p className="project-description">{project.description}</p>
@@ -109,9 +192,9 @@ const Projects = () => {
                     </a>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
   );

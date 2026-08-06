@@ -6,19 +6,16 @@ const About = () => {
     <section id="about" className="section section-alt">
         <div className="container">
           <h2 className="section-title">About Me</h2>
-          <div>
+          <div className="glass-panel" style={{ padding: '2.5rem', maxWidth: '840px', margin: '0 auto' }}>
             <p className="about-content">
-              I'm currently pursuing an Undergraduate degree in Computer Engineering and Computer Science at the University of Wisconsin-Madison,
-              where I'm undertaking diverse coursework (including future terms) spanning Hardware fundamentals 
-              (Digital Design/VLSI, Embedded/Firmware systems, Computer Architecture), 
-              Software Design (Distributed Systems, Databases, Operating Systems) and Advanced Mathematics
-              for AI (Optimization Theory, Numerical Analysis).
+              I'm a rising senior at the University of Wisconsin-Madison doing a dual degree in Computer Engineering and Computer Science.
+              My coursework has been a bit of everything: hardware (Digital Design, Embedded systems, Computer Architecture),
+              software (Distributed Systems, Databases, Compilers, Operating Systems), and math behind AI.
             </p>
             <p className="about-content">
-              I've also had the privilege to work in research on the crossroads of Machine Learning and Cybersecurity (within the MLOPT Research Group), and 
-              lead multiple engineering student origanizations (Wisconsin Robotics, RoboKnights) with over 40 members. My recent professional experience also 
-              includes an internship as Cybersecurity Analyst at Culligan International, where I worked alongside the Global Cybersecurity team
-              to build python-based tools for automating manual processes, reporting directly to the global CISO. 
+              I recently interned at KLA, where I got to build AI tooling that helps engineers and managers with their day-to-day work.
+              Before this I've dabbled in ML research, spent a summer doing cybersecurity, and helped run an engineering student org
+              club on campus. I like bouncing between hardware and software and picking up whatever a project throws at me.
             </p>
             <p className="about-content">
               Aside from my technical pursuits, I enjoy playing chess (<a href = "https://lichess.org/@/anubhav95" target="_blank">Challenge Me!</a>), 

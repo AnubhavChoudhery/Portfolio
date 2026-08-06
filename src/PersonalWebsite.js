@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import './index.css';
@@ -8,11 +8,21 @@ import Products from './products';
 import Projects from './projects';
 import About from './about';
 import Contact from './contact';
+import Background3D from './Background3D';
 
 const PersonalWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isNavScrolled, setIsNavScrolled] = useState(false);
+
+  const heroRef = useRef(null);
+  const siteSpotlightRef = useRef(null);
+
+  const handleSiteMouseMove = useCallback((e) => {
+    if (!siteSpotlightRef.current) return;
+    siteSpotlightRef.current.style.background =
+      `radial-gradient(600px circle at ${e.clientX}px ${e.clientY}px, rgba(56,189,248,0.06), transparent 42%)`;
+  }, []);
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -86,7 +96,15 @@ const PersonalWebsite = () => {
   }, []);
 
   return (
-    <div>
+    <div className="app-root" onMouseMove={handleSiteMouseMove}>
+      {/* Persistent 3D background */}
+      <Suspense fallback={null}>
+        <Background3D />
+      </Suspense>
+
+      {/* Site-wide cursor spotlight */}
+      <div ref={siteSpotlightRef} className="site-spotlight" />
+
       {/* Navigation */}
       <motion.nav
         initial={{ y: -100 }}
@@ -142,12 +160,13 @@ const PersonalWebsite = () => {
       </motion.nav>
 
       {/* Hero Section */}
-      <section id="home" className="hero">
+      <section id="home" className="hero" ref={heroRef}>
         <div className="hero-content">
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5 }}
+            className="hero-avatar-wrap"
           >
             <img
               src="./Anubhav.png"
@@ -156,35 +175,68 @@ const PersonalWebsite = () => {
             />
           </motion.div>
 
-          <motion.h1
-            initial={{ y: 20, opacity: 0 }}
+          <motion.div
+            className="glass-panel hero-panel"
+            initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="hero-title"
+            transition={{ delay: 0.25, duration: 0.6 }}
           >
-            Anubhav Choudhery
-          </motion.h1>
+            <motion.h1
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.35, duration: 0.5 }}
+              className="hero-title"
+            >
+              Anubhav Choudhery
+            </motion.h1>
 
-          <motion.p
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="hero-subtitle"
-          >
-            Hello there!
-          </motion.p>
+            <motion.p
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.45, duration: 0.5 }}
+              className="hero-subtitle"
+            >
+              Hello there!
+            </motion.p>
 
-          <motion.p
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-            className="hero-description"
+            <motion.p
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.55, duration: 0.5 }}
+              className="hero-description"
+            >
+              My name is Anubhav, and I'm an aspiring engineering professional with a strong background in Software Development and AI/ML. I'm passionate about building scalable software solutions, especially ones powered by AI. Alongside my software focus, I've also built a solid foundation in hardware systems and cybersecurity through hands-on coursework and internship experience.
+            </motion.p>
+
+            <motion.div
+              className="hero-cta"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.7, duration: 0.5 }}
+            >
+              <button
+                className="btn-primary"
+                onClick={() => scrollToSection('projects')}
+              >
+                View Work
+              </button>
+              <button
+                className="btn-ghost"
+                onClick={() => scrollToSection('contact')}
+              >
+                Get In Touch
+              </button>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            className="scroll-hint"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2, duration: 0.6 }}
           >
-            My name is Anubhav, and I'm an aspiring engineering professional with a strong background in Software Development and AI/ML.
-            I'm passionate about building scalable software solutions, especially ones powered by AI.
-            Alongside my software focus, I've also built a solid foundation in hardware systems and cybersecurity through hands-on coursework
-            and internship experience.
-          </motion.p>
+            <ChevronDown size={20} />
+          </motion.div>
         </div>
       </section>
 
@@ -209,7 +261,7 @@ const PersonalWebsite = () => {
       {/* Footer */}
       <footer className="footer">
         <div className="container">
-          <p>© 2025 Anubhav Choudhery</p>
+          <p>© 2026 Anubhav Choudhery</p>
         </div>
       </footer>
     </div>

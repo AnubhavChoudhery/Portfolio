@@ -10,14 +10,23 @@ const Experiences = () => {
                 <div className="experiences-list">
                     {[
                         {
+                            title: "Software Engineer Intern",
+                            company: "KLA",
+                            period: "May 2026 - August 2026",
+                            description: [
+                                "This was my first professional experience in software engineering. I worked on building RAG-powered AI agent tools to assist engineers and managers with their day-to-day work. These tools are already augmenting bug diagnosis and resolution, as well as preparing engineering roadmaps based on historical institutional knowledge.",
+                                "Working on this project taught me a lot about designing parallel pipelines, managing large-scale data, and understanding tradeoffs between speed and accuracy. Dealing with errors involving low-level ThreadPool/ProcessPool and Docker shim failures was daunting, but at the same time a great learning experience. I also improved my technical communication skills while consistently working with engineers and managers to understand their needs and deliver the best possible solution."
+                            ]
+                        },
+                        {
                             title: "Founding Developer",
                             company: "JBAC EdTech",
                             period: "September 2025 - Present",
                             description: [
                                 <>At JBAC, I am working on developing a consolidated education platform that aims to
                                     enhance learning experiences of students and professionals worldwide.
-                                    I have currently deployed the main site (<a href="https://jbac.dev" target="_blank" rel="noopener noreferrer">https://jbac.dev</a>) which includes 4 products and
-                                    3 open-source Python libraries/SDKs (more to come!).</>,
+                                    I have currently deployed the main site (<a href="https://jbac.dev" target="_blank" rel="noopener noreferrer">https://jbac.dev</a>) which includes numerous websites and
+                                    open-source Python libraries/SDKs (more to come!).</>,
                                 "The tools we build are inspired by tools we felt should exist, often discussing over a call \
                                 'Can we build this?' and jumping right into ideation, prototyping and development. \
                                 I have been involved in the entire product lifecycle, gaining valuable experience in \
