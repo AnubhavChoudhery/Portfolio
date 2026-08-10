@@ -143,7 +143,7 @@ const Skills = () => {
                   transition={{ delay: skillIndex * 0.05, duration: 0.3 }}
                   whileHover={{ y: -5, borderColor: 'var(--accent-primary)' }}
                 >
-                  <img src={skill.icon} alt={skill.name} className="skill-logo" />
+                  <img src={skill.icon} alt={skill.name} className="skill-logo" loading="lazy" />
                   <p className="skill-name">{skill.name}</p>
                 </motion.div>
               ))}

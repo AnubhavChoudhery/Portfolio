@@ -171,7 +171,7 @@ const Projects = () => {
                 <div className="tilt-glare" />
                 <div className="card-accent-bar" />
                 <div className="project-image-wrap">
-                  <img src={project.image} alt={project.title} className="project-image" />
+                  <img src={project.image} alt={project.title} className="project-image" loading="lazy" />
                   <div className="project-image-overlay" />
                 </div>
                 <span className="card-index">{String(index + 1).padStart(2, '0')}</span>

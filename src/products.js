@@ -49,7 +49,7 @@ const Products = () => {
                 description: "An option pricing engine I built in C++ to mess around with quantitative finance. Comes with a Python SDK, \
                 REST backend, and a live dashboard to play with.",
                 image: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/cplusplus/cplusplus-original.svg",
-                tech: ["C++17", "Black-Scholes PDEs", "Crank-Nicolson", "SIMD (AVX2/FMA)", "Auto-diff (Greeks)", "Python SDK", "FastAPI"],
+                tech: ["C++17", "Black-Scholes PDEs", "SIMD (AVX2/FMA)", "Auto-diff (Greeks)", "Python SDK", "FastAPI"],
                 link: "https://pypi.org/project/nablaquant/"
               },
               {
@@ -126,7 +126,7 @@ const Products = () => {
                 <div className="tilt-glare" />
                 <div className="card-accent-bar" />
                 <div className="project-image-wrap">
-                  <img src={product.image} alt={product.title} className="project-image" />
+                  <img src={product.image} alt={product.title} className="project-image" loading="lazy" />
                   <div className="project-image-overlay" />
                 </div>
                 <span className="card-index">{String(index + 1).padStart(2, '0')}</span>
